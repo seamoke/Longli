@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science Student Introduction</title>
+    <style>
+        /* General Reset */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7fc;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Flexbox Layout */
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        /* Profile Section */
+        .profile-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 100%;
+            margin: 20px auto;
+            border: 5px solid #007bff;
+            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-pic:hover {
+            transform: scale(1.1);
+        }
+
+        h1 {
+            font-size: 2.5em;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 2em;
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #007bff;
+        }
+
+        /* Section Styling */
+        .section {
+            width: 100%;
+            max-width: 900px;
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .section ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .section ul li {
+            margin-bottom: 15px;
+            font-size: 1.1em;
+            line-height: 1.8;
+        }
+
+        .section ul li strong {
+            color: #333;
+        }
+
+        .section a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .section a:hover {
+            color: #0056b3;
+        }
+
+        /* Social Links */
+        .social-links {
+            margin-top: 30px;
+        }
+
+        .social-links a {
+            margin: 0 15px;
+            font-size: 1.4em;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #0056b3;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.8em;
+            }
+
+            .profile-pic {
+                width: 120px;
+                height: 120px;
+            }
+
+            .section ul li {
+                font-size: 1em;
+            }
+
+            .social-links {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Profile Section -->
+        <div class="profile-section">
+            <img src="images/profie.jpg" alt="Profile Picture" class="profile-pic">
+            <h1>Long Li</h1>
+            <p>Hello, I'm Long Li, a master's student in Artificial Intelligence.</p>
+        </div>
+
+        <!-- Education Section -->
+        <div class="section">
+            <h2>Education</h2>
+            <ul>
+                <li><strong>Bachelor of Computer Science</strong><br>Changchun University of Science and Technology, 2018 - 2022</li>
+                <li><strong>Bachelor of Computer Science</strong><br>East China Normal University, 2022 - Present</li>
+            </ul>
+        </div>
+
+        <!-- Publications Section -->
+        <div class="section">
+            <h2>Publications</h2>
+            <ul>
+                <li><strong>Long Li</strong>, Xuzheng He, Haozhe Wang, Linlin Wang, and Liang He. 2024. How Do Humans Write Code? Large Models Do It the Same Way Too. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing, pages 4638–4649, Miami, Florida, USA. Association for Computational Linguistics. <strong>(EMNLP 2024)</strong></li>
+                <li>(Co-first author) Haozhe Wang, <strong>Long Li</strong>, Chao Qu, Weidi Xu, Fengming ZHU, Yi Xin, Wei Chu, Fangzhen Lin. AutoCode4Math: Learning Autonomous Code Integration for Math LLMs. Under Review in ICLR 2025.</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Contest</h2>
+            <ul>
+                <li>2021 ACM-ICPC (International Collegiate Programming Contest) Silver Medal. 2021.12<br>
+                    2021 CCPC (China Collegiate Programming Contest) Silver Medal. 2021.11<br>
+                    2020 Lanqiao Cup National First Prize in the C++ Category. 2020.11<br>
+                    Champion of the Jilin Province Lanqiao Cup for two consecutive years, 2020-2021 <br>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Internship Experience Section -->
+        <div class="section">
+            <h2>Internship Experience</h2>
+            <ul>
+                <li><strong>Software Engineer Intern</strong><br><strong>Pony.ai, Summer 2021</strong><br>Familiar with the C++ development process under Ubuntu, extracting drivable areas in real life from images. To address the error of mapping the Earth's curved surface to a 2D plane, the main approach involves dividing the large Static Map into multiple Tiles, then processing all Drivable Polygons for each Tile, and finally merging the Polygons between multiple Tiles and using an algorithm to smooth the boundary lines.</li>
+                <li><strong>Research Intern</strong><br><strong>INF Technology, Summer 2024</strong><br>1. Complete my paper and submit it to EMNLP.<br>2. Participate in the release of the <a href="https://github.com/infly-ai/INF-LLM" target="_blank">INF 34B</a> pre-trained model. I was involved in the entire process of enhancing the model's mathematical capabilities, from data collection to SFT, and then to RLHF. We were only two people, and in the end, INF 34B's mathematical abilities were on par with Qwen 1.5 and Yi 1.5 of the same size.</li>
+            </ul>
+        </div>
+
+        <!-- Skills Section -->
+        <div class="section">
+            <h2>Skills</h2>
+            <ul>
+                <li>Python</li>
+                <li>Java</li>
+                <li>C++</li>
+                <li>JavaScript</li>
+                <li>Web Development (HTML, CSS, React)</li>
+                <li>Machine Learning</li>
+                <li>Data Structures and Algorithms</li>
+                <li>Cybersecurity</li>
+            </ul>
+        </div>
+
+        <!-- Hobbies Section -->
+        <div class="section">
+            <h2>Hobbies</h2>
+            <p>In addition to technology, I enjoy reading, playing basketball, and traveling.</p>
+        </div>
+
+        <!-- Social Links Section -->
+        <div class="social-links">
+            <a href="https://github.com/longli" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/longli" target="_blank">LinkedIn</a>
+            <a href="https://twitter.com/longli" target="_blank">Twitter</a>
+        </div>
+    </div>
+</body>
+</html>
