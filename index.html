@@ -1,212 +1,600 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Computer Science Student Introduction</title>
-    <style>
-        /* General Reset */
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7fc;
-            color: #333;
-            line-height: 1.6;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Long Li - academic homepage">
+  <title>Long Li</title>
+  <style>
+    :root {
+      --paper: #fbfaf7;
+      --ink: #17201d;
+      --muted: #5b6762;
+      --line: #d9ded8;
+      --blue: #315f72;
+      --green: #3f7b55;
+      --red: #b84a3a;
+      --soft: #eef3ef;
+      --max: 1120px;
+    }
 
-        /* Flexbox Layout */
-        .container {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100%;
-            padding: 20px;
-            box-sizing: border-box;
-        }
+    * {
+      box-sizing: border-box;
+    }
 
-        /* Profile Section */
-        .profile-section {
-            text-align: center;
-            margin-bottom: 40px;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 100%;
-            margin: 20px auto;
-            border: 5px solid #007bff;
-            box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
-            transition: transform 0.3s ease;
-        }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.58;
+    }
 
-        .profile-pic:hover {
-            transform: scale(1.1);
-        }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-        h1 {
-            font-size: 2.5em;
-            color: #333;
-            margin-bottom: 20px;
-        }
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px max(24px, calc((100vw - var(--max)) / 2));
+      border-bottom: 1px solid rgba(23, 32, 29, 0.1);
+      background: rgba(251, 250, 247, 0.94);
+      backdrop-filter: blur(14px);
+    }
 
-        h2 {
-            font-size: 2em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: #007bff;
-        }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
 
-        /* Section Styling */
-        .section {
-            width: 100%;
-            max-width: 900px;
-            margin-top: 30px;
-            text-align: left;
-        }
+    .brand-mark {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 0.78rem;
+    }
 
-        .section ul {
-            list-style-type: none;
-            padding: 0;
-        }
+    .nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
 
-        .section ul li {
-            margin-bottom: 15px;
-            font-size: 1.1em;
-            line-height: 1.8;
-        }
+    .nav a:hover {
+      color: var(--ink);
+    }
 
-        .section ul li strong {
-            color: #333;
-        }
+    main,
+    .site-footer {
+      width: min(var(--max), calc(100vw - 48px));
+      margin: 0 auto;
+    }
 
-        .section a {
-            color: #007bff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) 320px;
+      gap: 56px;
+      align-items: center;
+      min-height: calc(100vh - 72px);
+      padding: 56px 0 72px;
+    }
 
-        .section a:hover {
-            color: #0056b3;
-        }
+    .eyebrow {
+      margin: 0 0 12px;
+      color: var(--red);
+      font-size: 0.78rem;
+      font-weight: 900;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
 
-        /* Social Links */
-        .social-links {
-            margin-top: 30px;
-        }
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
 
-        .social-links a {
-            margin: 0 15px;
-            font-size: 1.4em;
-            transition: color 0.3s ease;
-        }
+    h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.2rem, 7vw, 6.8rem);
+      line-height: 0.96;
+      letter-spacing: 0;
+    }
 
-        .social-links a:hover {
-            color: #0056b3;
-        }
+    h2 {
+      margin-bottom: 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2.2rem;
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2em;
-            }
+    h3 {
+      margin-bottom: 8px;
+      font-size: 1.05rem;
+      letter-spacing: 0;
+    }
 
-            h2 {
-                font-size: 1.8em;
-            }
+    .lead {
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.15rem;
+    }
 
-            .profile-pic {
-                width: 120px;
-                height: 120px;
-            }
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
 
-            .section ul li {
-                font-size: 1em;
-            }
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 16px;
+      border: 1px solid var(--ink);
+      background: var(--ink);
+      color: var(--paper);
+      font-weight: 800;
+    }
 
-            .social-links {
-                text-align: center;
-            }
-        }
-    </style>
+    .button.secondary {
+      background: transparent;
+      color: var(--ink);
+    }
+
+    .profile {
+      margin: 0;
+    }
+
+    .profile img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 18%;
+      border: 1px solid var(--line);
+      background: var(--soft);
+    }
+
+    .profile figcaption {
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      padding: 72px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-heading {
+      max-width: 760px;
+      margin-bottom: 28px;
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: 0.38fr minmax(0, 0.62fr);
+      gap: 48px;
+    }
+
+    .focus-grid,
+    .award-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .focus-item,
+    .award-item,
+    .publication,
+    .experience-item,
+    .education-item {
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .focus-item,
+    .award-item {
+      min-height: 178px;
+      padding: 22px;
+    }
+
+    .focus-item:nth-child(1) {
+      border-top: 4px solid var(--blue);
+    }
+
+    .focus-item:nth-child(2) {
+      border-top: 4px solid var(--green);
+    }
+
+    .focus-item:nth-child(3) {
+      border-top: 4px solid var(--red);
+    }
+
+    .focus-item p,
+    .award-item p,
+    .publication p,
+    .experience-item p,
+    .education-item p,
+    .meta,
+    .muted {
+      color: var(--muted);
+    }
+
+    .publication-list,
+    .experience-list,
+    .education-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .publication {
+      display: grid;
+      grid-template-columns: 86px minmax(0, 1fr);
+      gap: 18px;
+      padding: 20px;
+    }
+
+    .year {
+      color: var(--red);
+      font-weight: 900;
+    }
+
+    .tag {
+      display: inline-block;
+      margin-bottom: 8px;
+      color: var(--blue);
+      font-weight: 900;
+      font-size: 0.9rem;
+    }
+
+    .paper-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 10px;
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .experience-item,
+    .education-item {
+      padding: 22px;
+    }
+
+    .experience-item ul {
+      margin: 12px 0 0;
+      padding-left: 20px;
+      color: var(--muted);
+    }
+
+    .education-list {
+      align-self: start;
+    }
+
+    .award-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-band {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 32px;
+      align-items: center;
+      margin-bottom: 48px;
+      padding: 34px 0;
+      border-top: 1px solid var(--ink);
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 8px;
+      color: var(--blue);
+      font-weight: 800;
+    }
+
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 28px 0 44px;
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 880px) {
+      .site-header {
+        position: static;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .hero,
+      .two-column,
+      .contact-band {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 0;
+        padding-top: 40px;
+      }
+
+      .profile {
+        max-width: 340px;
+      }
+
+      .focus-grid,
+      .award-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 560px) {
+      main,
+      .site-footer {
+        width: min(100vw - 28px, var(--max));
+      }
+
+      h1 {
+        font-size: 3rem;
+      }
+
+      .nav {
+        gap: 12px;
+      }
+
+      .publication {
+        grid-template-columns: 1fr;
+      }
+
+      .site-footer {
+        flex-direction: column;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Profile Section -->
-        <div class="profile-section">
-            <img src="images/profie.jpg" alt="Profile Picture" class="profile-pic">
-            <h1>Long Li</h1>
-            <p>Hello, I'm Long Li, a master's student in Artificial Intelligence.</p>
-        </div>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="Long Li homepage">
+      <span class="brand-mark">LL</span>
+      <span>Long Li</span>
+    </a>
+    <nav class="nav" aria-label="Primary navigation">
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-        <!-- Education Section -->
-        <div class="section">
-            <h2>Education</h2>
-            <ul>
-                <li><strong>Bachelor of Computer Science</strong><br>Changchun University of Science and Technology, 2018 - 2022</li>
-                <li><strong>Bachelor of Computer Science</strong><br>East China Normal University, 2022 - Present</li>
-            </ul>
+  <main id="top">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">LLM Reasoning · Reinforcement Learning · NL2SQL</p>
+        <h1>Long Li</h1>
+        <p class="lead">
+          I am a computer science researcher working on reinforcement learning for large language models, with a focus on
+          verifiable rewards, diversity preservation, NL2SQL agents, and mathematical/code reasoning. My recent work studies
+          how divergence choices, dense feedback, and trajectory aggregation shape robust and efficient LLM training.
+        </p>
+        <div class="links">
+          <a class="button" href="mailto:seamoke111@gmail.com">Email</a>
+          <a class="button secondary" href="https://github.com/seamoke" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="button secondary" href="#publications">Publications</a>
+          <a class="button secondary" href="#contact">Contact</a>
         </div>
+      </div>
+      <figure class="profile">
+        <img src="images/profie.jpg" alt="Portrait of Long Li">
+        <figcaption>Algorithm Engineer; M.S. in Computer Science, East China Normal University.</figcaption>
+      </figure>
+    </section>
 
-        <!-- Publications Section -->
-        <div class="section">
-            <h2>Publications</h2>
-            <ul>
-                <li><strong>Long Li</strong>, Xuzheng He, Haozhe Wang, Linlin Wang, and Liang He. 2024. How Do Humans Write Code? Large Models Do It the Same Way Too. In Proceedings of the 2024 Conference on Empirical Methods in Natural Language Processing, pages 4638–4649, Miami, Florida, USA. Association for Computational Linguistics. <strong>(EMNLP 2024)</strong></li>
-                <li>(Co-first author) Haozhe Wang, <strong>Long Li</strong>, Chao Qu, Weidi Xu, Fengming ZHU, Yi Xin, Wei Chu, Fangzhen Lin. AutoCode4Math: Learning Autonomous Code Integration for Math LLMs. Under Review in ICLR 2025.</li>
-            </ul>
-        </div>
+    <section class="section" id="research">
+      <div class="section-heading">
+        <p class="eyebrow">Research</p>
+        <h2>Research Interests</h2>
+      </div>
+      <div class="focus-grid">
+        <article class="focus-item">
+          <h3>RL for LLMs</h3>
+          <p>
+            Mitigating diversity collapse and catastrophic forgetting in RL with verifiable rewards, including f-divergence
+            based alternatives to reverse KL regularization.
+          </p>
+        </article>
+        <article class="focus-item">
+          <h3>Agentic NL2SQL</h3>
+          <p>
+            Training multi-turn SQL agents with dense feedback, column-set matching, trajectory aggregation, and pass@k to
+            pass@1 optimization.
+          </p>
+        </article>
+        <article class="focus-item">
+          <h3>Reasoning & Code</h3>
+          <p>
+            Understanding how large models write code and solve mathematical reasoning problems through intermediate
+            training signals and attention behavior.
+          </p>
+        </article>
+      </div>
+    </section>
 
-        <div class="section">
-            <h2>Contest</h2>
-            <ul>
-                <li>2021 ACM-ICPC (International Collegiate Programming Contest) Silver Medal. 2021.12<br>
-                    2021 CCPC (China Collegiate Programming Contest) Silver Medal. 2021.11<br>
-                    2020 Lanqiao Cup National First Prize in the C++ Category. 2020.11<br>
-                    Champion of the Jilin Province Lanqiao Cup for two consecutive years, 2020-2021 <br>
-                </li>
-            </ul>
-        </div>
+    <section class="section" id="publications">
+      <div class="section-heading">
+        <p class="eyebrow">Publications</p>
+        <h2>Selected Publications</h2>
+      </div>
+      <div class="publication-list">
+        <article class="publication">
+          <div class="year">2026</div>
+          <div>
+            <span class="tag">ICLR 2026 · First Author</span>
+            <h3>The Choice of Divergence: A Neglected Key to Mitigating Diversity Collapse in Reinforcement Learning with Verifiable Reward</h3>
+            <p><strong>Long Li</strong>, Jiaran Hao, Jason Klein Liu, Zhijian Zhou, Xiaoyu Tan, Wei Chu, Zhe Wang, Shirui Pan, Chao Qu, Yuan Qi.</p>
+            <p>
+              Proposes replacing reverse KL with f-divergence based sampling from a reference model, improving efficiency
+              and entropy behavior across SQL and math tasks for 7B-32B models.
+            </p>
+          </div>
+        </article>
 
-        <!-- Internship Experience Section -->
-        <div class="section">
-            <h2>Internship Experience</h2>
-            <ul>
-                <li><strong>Software Engineer Intern</strong><br><strong>Pony.ai, Summer 2021</strong><br>Familiar with the C++ development process under Ubuntu, extracting drivable areas in real life from images. To address the error of mapping the Earth's curved surface to a 2D plane, the main approach involves dividing the large Static Map into multiple Tiles, then processing all Drivable Polygons for each Tile, and finally merging the Polygons between multiple Tiles and using an algorithm to smooth the boundary lines.</li>
-                <li><strong>Research Intern</strong><br><strong>INF Technology, Summer 2024</strong><br>1. Complete my paper and submit it to EMNLP.<br>2. Participate in the release of the <a href="https://github.com/infly-ai/INF-LLM" target="_blank">INF 34B</a> pre-trained model. I was involved in the entire process of enhancing the model's mathematical capabilities, from data collection to SFT, and then to RLHF. We were only two people, and in the end, INF 34B's mathematical abilities were on par with Qwen 1.5 and Yi 1.5 of the same size.</li>
-            </ul>
-        </div>
+        <article class="publication">
+          <div class="year">2026</div>
+          <div>
+            <span class="tag">ACL Findings 2026 · First Author</span>
+            <h3>SQL-ASTRA: Alleviating Sparse Feedback in Agentic SQL via Column-Set Matching and Trajectory Aggregation</h3>
+            <p><strong>Long Li</strong>, Zhijian Zhou, Jiangxuan Long, Peiyang Liu, Weidi Xu, Zhe Wang, Shirui Pan, Chao Qu.</p>
+            <p>
+              Builds a multi-turn RL framework for SQL agents with per-turn dense rewards and aggregated intermediate
+              supervision.
+            </p>
+          </div>
+        </article>
 
-        <!-- Skills Section -->
-        <div class="section">
-            <h2>Skills</h2>
-            <ul>
-                <li>Python</li>
-                <li>Java</li>
-                <li>C++</li>
-                <li>JavaScript</li>
-                <li>Web Development (HTML, CSS, React)</li>
-                <li>Machine Learning</li>
-                <li>Data Structures and Algorithms</li>
-                <li>Cybersecurity</li>
-            </ul>
-        </div>
+        <article class="publication">
+          <div class="year">2025</div>
+          <div>
+            <span class="tag">ACL Findings 2025 · Co-first Author</span>
+            <h3>To Code or not to Code? Adaptive Tool Integration for Math Language Models via Expectation-Maximization</h3>
+            <p>Haozhe Wang*, <strong>Long Li*</strong>, Chao Qu, Weidi Xu, Fengming Zhu, Yi Xin, Wei Chu, Fangzhen Lin.</p>
+            <div class="paper-links">
+              <a href="https://aclanthology.org/2025.findings-acl.159.pdf" target="_blank" rel="noreferrer">PDF</a>
+            </div>
+          </div>
+        </article>
 
-        <!-- Hobbies Section -->
-        <div class="section">
-            <h2>Hobbies</h2>
-            <p>In addition to technology, I enjoy reading, playing basketball, and traveling.</p>
-        </div>
+        <article class="publication">
+          <div class="year">2024</div>
+          <div>
+            <span class="tag">EMNLP 2024 · First Author</span>
+            <h3>How Do Humans Write Code? Large Models Do It the Same Way Too</h3>
+            <p><strong>Long Li</strong>, Xuzheng He, Haozhe Wang, Linlin Wang, Liang He.</p>
+            <p>Proceedings of EMNLP 2024, pages 4638-4649, Miami, Florida, USA.</p>
+            <div class="paper-links">
+              <a href="https://aclanthology.org/2024.emnlp-main.269/" target="_blank" rel="noreferrer">ACL Anthology</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
 
-        <!-- Social Links Section -->
-        <div class="social-links">
-            <a href="https://github.com/longli" target="_blank">GitHub</a>
-            <a href="https://www.linkedin.com/in/longli" target="_blank">LinkedIn</a>
-            <a href="https://twitter.com/longli" target="_blank">Twitter</a>
+    <section class="section two-column" id="experience">
+      <div class="section-heading">
+        <p class="eyebrow">Experience</p>
+        <h2>Industry Research</h2>
+        <p class="muted">I work on practical LLM training systems, from data construction and SFT to RL optimization and evaluation.</p>
+      </div>
+      <div class="experience-list">
+        <article class="experience-item">
+          <h3>Algorithm Engineer · INF Technology</h3>
+          <p class="meta">March 2025 - March 2026</p>
+          <ul>
+            <li>Led NL2SQL leaderboard efforts across data collection, SFT/RL training, dense reward design, and evaluation.</li>
+            <li>Improved pass@k to pass@1 conversion through fine-grained reward modeling and f-divergence based RL constraints.</li>
+            <li>Helped produce a pure open-source model ranked first on BIRD Bench among open-source submissions at the time of submission.</li>
+            <li>Developed multi-turn RL capabilities on top of VERL, including off-policy data mechanisms and long-context rollout optimization.</li>
+          </ul>
+        </article>
+        <article class="experience-item">
+          <h3>Algorithm Intern · INF Technology</h3>
+          <p class="meta">March 2024 - March 2025</p>
+          <ul>
+            <li>Contributed to the release of the INF 34B pre-trained model.</li>
+            <li>Worked on mathematical capability enhancement across data collection, SFT, and RL optimization.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="section two-column" id="education">
+      <div>
+        <div class="section-heading">
+          <p class="eyebrow">Education</p>
+          <h2>Academic Background</h2>
         </div>
-    </div>
+        <div class="education-list">
+          <article class="education-item">
+            <h3>East China Normal University</h3>
+            <p>M.S. in Computer Science and Technology, 2022 - 2025.</p>
+          </article>
+          <article class="education-item">
+            <h3>Changchun University of Science and Technology</h3>
+            <p>B.S. in Computer Science and Technology, 2018 - 2022. GPA: 87/100, top 5%.</p>
+          </article>
+        </div>
+      </div>
+      <div>
+        <div class="section-heading">
+          <p class="eyebrow">Awards</p>
+          <h2>Programming Contests</h2>
+        </div>
+        <div class="award-grid">
+          <article class="award-item">
+            <h3>ACM-ICPC Asia Regional</h3>
+            <p>Silver Medal, Shenyang Site, 2021.</p>
+          </article>
+          <article class="award-item">
+            <h3>CCPC Guilin Site</h3>
+            <p>Silver Medal, 2021.</p>
+          </article>
+          <article class="award-item">
+            <h3>Lanqiao Cup</h3>
+            <p>National First Prize in C++ and two-time Jilin Province Champion.</p>
+          </article>
+          <article class="award-item">
+            <h3>Team Programming Ladder</h3>
+            <p>National First Prize in consecutive years.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-band" id="contact">
+      <div>
+        <p class="eyebrow">Contact</p>
+        <h2>Open to research conversations on LLM reasoning, RL training, and agentic SQL.</h2>
+      </div>
+      <div class="contact-links">
+        <a href="mailto:seamoke111@gmail.com">seamoke111@gmail.com</a>
+        <a href="https://github.com/seamoke" target="_blank" rel="noreferrer">github.com/seamoke</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 Long Li.</span>
+    <a href="#top">Back to top</a>
+  </footer>
 </body>
 </html>
